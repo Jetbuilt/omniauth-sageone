@@ -8,4 +8,24 @@ This is an unofficial OmniAuth strategy for authenticating to SageOne. To use it
       provider :sageone, ENV['SAGE_CLIENT_ID'], ENV['SAGE_CLIENT_SECRET'], scope: 'full_access'
     end
 
-    Options for `scope` are either `readonly` or `full_access`.
+    # Options for `scope` are either `readonly` or `full_access`.
+    
+## Auth Hash
+
+The hash in `env['omniauth.auth']` will have the following information:
+
+- in `credentials`:
+  - `token`: The access token.
+  - `refresh_token`: The refresh token. Use this to get a new token when the one in `token` has been expired.
+  - `expires_at`: Timestamp that indicates when `token` will expire.
+  - `expires`: `true`
+  - `resource_owner_id`: An ID returned by Sage One when fetching the access token. You'll need that value for API v3
+    for request signing and the `X-SITE` header that is required on API requests.
+- in `info`:
+  - `country`: The user's country. Use that information to get the correct base URL (Sage One has different ones for
+    different countries).
+- in `uid`: The `requested_by_id` returned by Sage One when fetching the token.
+
+## See Also
+
+https://developer.sageone.com has the Sage One API documentation.
