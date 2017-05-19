@@ -1,19 +1,20 @@
 # -*- encoding: utf-8 -*-
+
 require File.expand_path('../lib/omniauth-sageone/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Jared Moody"]
-  gem.email         = ["jared@jetbuilt.com"]
-  gem.description   = %q{OmniAuth strategy for SageOne.}
-  gem.summary       = %q{OmniAuth strategy for SageOne.}
-  gem.homepage      = "https://github.com/jetbuilt/omniauth-sageone"
-  gem.licenses      = "MIT"
+  gem.authors       = ['Jared Moody']
+  gem.email         = ['jared@jetbuilt.com']
+  gem.description   = 'OmniAuth strategy for SageOne.'
+  gem.summary       = 'OmniAuth strategy for SageOne.'
+  gem.homepage      = 'https://github.com/jetbuilt/omniauth-sageone'
+  gem.licenses      = 'MIT'
 
-  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "omniauth-sageone"
-  gem.require_paths = ["lib"]
+  gem.name          = 'omniauth-sageone'
+  gem.require_paths = ['lib']
   gem.version       = OmniAuth::SageOne::VERSION
 
   gem.add_dependency 'omniauth', '~> 1.0'

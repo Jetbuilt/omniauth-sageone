@@ -5,7 +5,8 @@ gemspec
 
 group :development, :test do
   gem 'guard'
-  gem 'guard-rspec'
   gem 'guard-bundler'
+  gem 'guard-rspec'
+  gem 'guard-rubocop'
   gem 'rb-fsevent'
 end
