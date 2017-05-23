@@ -36,7 +36,8 @@ module OmniAuth
       end
 
       # SageOne has different token endpoints for each available country. The country is returned in
-      # the authorization callback. Configure the OAuth client to use that information.
+      # the authorization callback. Configure the OAuth client to use that information by
+      # customizing the client options
       def client
         ::OAuth2::Client.new(options.client_id, options.client_secret, client_options)
       end
@@ -56,17 +57,14 @@ module OmniAuth
       end
 
       def country
-        request[:country].try(:downcase)
+        request.env ? request[:country].try(:downcase) : options.client_options[:country]
       end
 
+      # Override client_options[:token_url] using the country from ether the request or the
+      # provided country option
       def client_options
-        hash = if country
-                 { token_url: TOKEN_URLS[country] }.merge(options.client_options)
-               else
-                 options.client_options
-               end
-
-        deep_symbolize(hash)
+        options.client_options[:token_url] = TOKEN_URLS[country] if country
+        deep_symbolize(options.client_options)
       end
     end
   end
