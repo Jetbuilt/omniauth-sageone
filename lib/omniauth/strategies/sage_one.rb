@@ -8,7 +8,8 @@ module OmniAuth
              authorize_url: 'https://www.sageone.com/oauth2/auth/central'
 
       option :authorize_params,
-             response_type: 'code'
+             response_type: 'code',
+             filter: 'apiv3.1'
 
       uid do
         access_token['requested_by_id']
