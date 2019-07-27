@@ -3,21 +3,13 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class SageOne < OmniAuth::Strategies::OAuth2
-      TOKEN_URLS = {
-        'ca' => 'https://mysageone.ca.sageone.com/oauth2/token',
-        'de' => 'https://oauth.eu.sageone.com/token',
-        'es' => 'https://oauth.eu.sageone.com/token',
-        'fr' => 'https://oauth.eu.sageone.com/token',
-        'gb' => 'https://app.sageone.com/oauth2/token',
-        'ie' => 'https://app.sageone.com/oauth2/token',
-        'us' => 'https://mysageone.na.sageone.com/oauth2/token'
-      }.freeze
 
       option :client_options,
              authorize_url: 'https://www.sageone.com/oauth2/auth/central'
 
       option :authorize_params,
-             response_type: 'code'
+             response_type: 'code',
+             filter: 'apiv3.1'
 
       uid do
         access_token['requested_by_id']
@@ -35,9 +27,6 @@ module OmniAuth
         }
       end
 
-      # SageOne has different token endpoints for each available country. The country is returned in
-      # the authorization callback. Configure the OAuth client to use that information by
-      # customizing the client options
       def client
         ::OAuth2::Client.new(options.client_id, options.client_secret, client_options)
       end
@@ -60,10 +49,8 @@ module OmniAuth
         request.env ? request[:country].try(:downcase) : options.client_options[:country]
       end
 
-      # Override client_options[:token_url] using the country from ether the request or the
-      # provided country option
       def client_options
-        options.client_options[:token_url] = TOKEN_URLS[country] if country
+        options.client_options[:token_url] = 'https://oauth.accounting.sage.com/token'
         deep_symbolize(options.client_options)
       end
     end
