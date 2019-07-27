@@ -54,7 +54,7 @@ module OmniAuth
       # Override client_options[:token_url] using the country from ether the request or the
       # provided country option
       def client_options
-        options.client_options[:token_url] = TOKEN_URLS[country] if country
+        options.client_options[:token_url] = 'https://oauth.accounting.sage.com/token'
         deep_symbolize(options.client_options)
       end
     end
