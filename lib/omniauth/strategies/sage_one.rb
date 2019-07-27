@@ -3,15 +3,6 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class SageOne < OmniAuth::Strategies::OAuth2
-      TOKEN_URLS = {
-        'ca' => 'https://mysageone.ca.sageone.com/oauth2/token',
-        'de' => 'https://oauth.eu.sageone.com/token',
-        'es' => 'https://oauth.eu.sageone.com/token',
-        'fr' => 'https://oauth.eu.sageone.com/token',
-        'gb' => 'https://app.sageone.com/oauth2/token',
-        'ie' => 'https://app.sageone.com/oauth2/token',
-        'us' => 'https://mysageone.na.sageone.com/oauth2/token'
-      }.freeze
 
       option :client_options,
              authorize_url: 'https://www.sageone.com/oauth2/auth/central'
