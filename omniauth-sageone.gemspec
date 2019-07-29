@@ -1,6 +1,6 @@
-# -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
-require File.expand_path('../lib/omniauth-sageone/version', __FILE__)
+require File.expand_path('lib/omniauth-sageone/version', __dir__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ['Jared Moody']
@@ -19,8 +19,8 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'omniauth', '~> 1.0'
   gem.add_dependency 'omniauth-oauth2', '~> 1.0'
-  gem.add_development_dependency 'rspec', '~> 2.7'
   gem.add_development_dependency 'rack-test'
+  gem.add_development_dependency 'rspec', '~> 2.7'
   gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'webmock'
 end
