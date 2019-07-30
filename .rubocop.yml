@@ -1,5 +1,11 @@
+require: rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.3
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - 'describe'
 
 Metrics/LineLength:
   Max: 100
@@ -7,10 +13,17 @@ Metrics/LineLength:
 Style/Documentation:
   Enabled: false
 
-Style/FileName:
+Naming/FileName:
   Exclude:
     - 'lib/omniauth-sageone.rb'
 
 Style/RegexpLiteral:
   Exclude:
     - 'Guardfile'
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/omniauth/strategies/sage_one_spec.rb'
