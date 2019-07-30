@@ -10,4 +10,4 @@ RuboCop::RakeTask.new
 desc 'Run specs'
 RSpec::Core::RakeTask.new
 
-task default: :rubocop
+task default: %i[rubocop spec]
