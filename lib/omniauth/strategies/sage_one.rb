@@ -6,7 +6,8 @@ module OmniAuth
   module Strategies
     class SageOne < OmniAuth::Strategies::OAuth2
       option :client_options,
-             authorize_url: 'https://www.sageone.com/oauth2/auth/central'
+             authorize_url: 'https://www.sageone.com/oauth2/auth/central',
+             token_url: 'https://oauth.accounting.sage.com/token'
 
       option :authorize_params,
              response_type: 'code',
@@ -28,31 +29,16 @@ module OmniAuth
         }
       end
 
-      def client
-        ::OAuth2::Client.new(options.client_id, options.client_secret, client_options)
+      # Override this method to remove the query string from the callback_url because SageOne
+      # requires an exact match
+      def callback_url
+        super.split('?').first
       end
 
       protected
 
-      # Override this method to remove the query string from the callback_url because SageOne
-      # requires an exact match
-      def build_access_token
-        client.auth_code.get_token(
-          request.params['code'],
-          {
-            redirect_uri: callback_url.split('?').first
-          }.merge(token_params.to_hash(symbolize_keys: true)),
-          deep_symbolize(options.auth_token_params)
-        )
-      end
-
       def country
         request.env ? request[:country].try(:downcase) : options.client_options[:country]
-      end
-
-      def client_options
-        options.client_options[:token_url] = 'https://oauth.accounting.sage.com/token'
-        deep_symbolize(options.client_options)
       end
     end
   end
