@@ -1,5 +1,7 @@
 # OmniAuth SageOne
 
+[![Gem Version](https://badge.fury.io/rb/omniauth-sageone.svg)](https://badge.fury.io/rb/omniauth-sageone)
+
 This is an unofficial OmniAuth strategy for authenticating to SageOne. To use it, you'll need to sign up for a Sage One OAuth2 Application ID and Secret.
 
 ## Basic Usage
@@ -9,7 +11,7 @@ This is an unofficial OmniAuth strategy for authenticating to SageOne. To use it
     end
 
     # Options for `scope` are either `readonly` or `full_access`.
-    
+
 ## Auth Hash
 
 The hash in `env['omniauth.auth']` will have the following information:
@@ -22,8 +24,7 @@ The hash in `env['omniauth.auth']` will have the following information:
   - `resource_owner_id`: An ID returned by Sage One when fetching the access token. You'll need that value for API v3
     for request signing and the `X-SITE` header that is required on API requests.
 - in `info`:
-  - `country`: The user's country. Use that information to get the correct base URL (Sage One has different ones for
-    different countries).
+  - `country`: The user's country.
 - in `uid`: The `requested_by_id` returned by Sage One when fetching the token.
 
 ## See Also
