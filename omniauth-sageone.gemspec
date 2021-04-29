@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = OmniAuth::SageOne::VERSION
 
+  gem.required_ruby_version = '~> 2.6'
+
   gem.add_dependency 'omniauth', '~> 1.0'
   gem.add_dependency 'omniauth-oauth2', '~> 1.0'
 
