@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe OmniAuth::Strategies::SageOne do
-  let(:access_token) { instance_double('AccessToken', options: {}) }
+  let(:access_token) { instance_double(OAuth2::AccessToken, options: {}) }
 
   let(:sageone) { OmniAuth::Strategies::SageOne.new({}) }
 

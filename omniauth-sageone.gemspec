@@ -12,10 +12,11 @@ Gem::Specification.new do |gem|
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
-  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = 'omniauth-sageone'
   gem.require_paths = ['lib']
   gem.version       = OmniAuth::SageOne::VERSION
+
+  gem.metadata['rubygems_mfa_required'] = 'true'
 
   gem.required_ruby_version = '~> 2.6'
 

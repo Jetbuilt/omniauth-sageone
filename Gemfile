@@ -11,6 +11,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'rb-fsevent'
-  gem 'rubocop', '~> 0.73'
-  gem 'rubocop-rspec', '~> 1.34'
+  gem 'rubocop', '~> 1.41.0'
+  gem 'rubocop-rake', '~> 0.6.0'
+  gem 'rubocop-rspec', '~> 2.16.0'
 end
