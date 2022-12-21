@@ -1,6 +1,7 @@
 # OmniAuth SageOne
 
 [![Gem Version](https://badge.fury.io/rb/omniauth-sageone.svg)](https://badge.fury.io/rb/omniauth-sageone)
+![CI](https://img.shields.io/github/actions/workflow/status/Jetbuilt/omniauth-sageone/ci.yml?branch=main)
 
 This is an unofficial OmniAuth strategy for authenticating to SageOne. To use it, you'll need to sign up for a Sage One OAuth2 Application ID and Secret.
 
