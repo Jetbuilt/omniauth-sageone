@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.metadata['rubygems_mfa_required'] = 'true'
 
-  gem.required_ruby_version = '~> 2.6'
+  gem.required_ruby_version = '>= 2.7'
 
   gem.add_dependency 'omniauth', '~> 1.0'
   gem.add_dependency 'omniauth-oauth2', '~> 1.0'
