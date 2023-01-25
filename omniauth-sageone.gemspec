@@ -10,7 +10,6 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/jetbuilt/omniauth-sageone'
   gem.licenses      = 'MIT'
 
-  gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.name          = 'omniauth-sageone'
   gem.require_paths = ['lib']
